@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Order from './components/order/order';
+import PlaceOrder from './components/order/placeOrder';
+import SetOrder from './components/order/setOrder';
+import ShowOrderProducts from './components/order/showOrderProducts';
+import AddProduct from './components/product/addProduct'
+import ShowProducts from './components/product/showProduct';
+import UpdatePage from './components/product/updatePage';
+import ViewProduct from './components/product/viewProduct';
+
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path="/order" exact component={Order} />
+        <Route path="/addProduct" exact component={AddProduct} />
+        <Route path="/" exact component={ShowProducts} />
+        <Route path="/viewProduct/:id" exact component={ViewProduct} />
+        <Route path="/updatePage/:id" exact component={UpdatePage} />
+        <Route path="/setOrder/" exact component={SetOrder} />
+        <Route path="/orderProducts/:id" exact component={ShowOrderProducts} />
+      </Switch>
     </div>
   );
 }
